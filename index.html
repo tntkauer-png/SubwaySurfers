@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#07141f" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2307141f'/%3E%3Cpath d='M14 12h36L27 52h23' fill='none' stroke='%23d8ff67' stroke-width='7'/%3E%3C/svg%3E" />
+  <title>Neon Run // Last Train</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Neon Run endless runner game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon Run home"><span class="brand-mark">N<span>R</span></span><span class="brand-name">NEON<br><b>RUN</b></span></a>
+      <div class="run-stats"><div><small>DISTANCE</small><strong id="distance">0000<span>m</span></strong></div><i></i><div><small>BEST RUN</small><strong id="best">0000<span>m</span></strong></div></div>
+      <button class="sound-button" id="soundButton" aria-label="Toggle sound">♫ <span>SOUND</span></button>
+    </header>
+    <div class="hud-left"><div class="score-label">RUN SCORE</div><div class="score-value" id="score">000000</div><div class="coin-readout"><span class="coin-icon">◆</span><span id="coins">00</span><small>SHARDS</small></div></div>
+    <div class="hud-right"><div class="multiplier"><span class="multiplier-star">✳</span><div><small>FLOW CHAIN</small><b id="combo">x1.0</b></div></div><div class="power-meter"><div class="power-copy"><small>PHASE DRIVE</small><b id="phaseText">READY</b></div><div class="meter-track"><i id="phaseMeter"></i></div><div class="power-key">SPACE</div></div></div>
+    <div class="center-message" id="centerMessage" aria-live="polite"></div>
+    <div class="bottom-hud"><div class="lane-indicator"><span>←</span><i class="active"></i><i></i><i></i><span>→</span></div><div class="hint" id="hint">← → CHANGE LANE <span>•</span> ↑ JUMP <span>•</span> ↓ SLIDE</div><button class="pause-button" id="pauseButton" aria-label="Pause game">Ⅱ</button></div>
+    <section class="screen intro-screen" id="introScreen">
+      <div class="intro-card"><div class="eyebrow"><span class="live-dot"></span> SECTOR 09 — NIGHT SHIFT</div><h1>RUN THE<br><em>AFTERLIGHT.</em></h1><p class="intro-copy">The last train is hunting you. The city is your track.<br>Find the rhythm. Break the line.</p>
+        <div class="mechanic-callout"><div class="callout-icon">ϟ</div><div><b>PHASE DRIVE</b><span>Slip through danger. Chain a perfect run.</span></div><kbd>SPACE</kbd></div>
+        <button class="primary-button" id="playButton"><span>START RUN</span><b>↗</b></button><div class="controls-note">ARROW KEYS / WASD <i>—</i> OR SWIPE TO MOVE</div>
+      </div>
+      <div class="intro-side"><span class="side-line"></span><span>NO TICKET<br>NO BRAKES</span></div>
+    </section>
+    <section class="screen pause-screen hidden" id="pauseScreen"><div class="modal-card"><div class="eyebrow">⏸ &nbsp; RUN PAUSED</div><h2>TAKE A<br><em>BREATHER.</em></h2><p>They’re still right behind you.</p><button class="primary-button" id="resumeButton"><span>KEEP RUNNING</span><b>↗</b></button><div class="controls-note">PRESS <kbd>ESC</kbd> TO RESUME</div></div></section>
+    <section class="screen gameover-screen hidden" id="gameoverScreen"><div class="modal-card"><div class="eyebrow"><span class="live-dot"></span> RUN ENDED</div><h2>THE LINE<br><em>ENDS HERE.</em></h2><p id="runSummary">You made it 000m.</p><div class="result-stats"><div><small>FINAL SCORE</small><b id="finalScore">000000</b></div><div><small>SHARDS BANKED</small><b id="finalCoins">00</b></div></div><button class="primary-button" id="retryButton"><span>RUN IT BACK</span><b>↗</b></button><div class="controls-note">YOUR NEXT RUN STARTS NOW</div></div></section>
+    <div class="toast" id="toast"></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

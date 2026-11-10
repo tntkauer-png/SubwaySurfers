@@ -1,4 +1,18 @@
-# SubwaySurfers
+# Neon Run // Last Train
+
+A fast, browser-playable three-lane endless runner built with a lightweight canvas renderer—no build step or external game engine required.
+
+## Play
+
+Open `index.html` in a browser, or serve this folder with `python3 -m http.server 3002` and visit `http://localhost:3002`.
+
+- **← / →** or **A / D** — switch lanes
+- **↑ / W** — vault barriers
+- **↓ / S** — slide under signs
+- **Space** — activate a charged Phase Drive to pass through hazards
+- **Swipe** — move on touch screens
+
+Collect shards to charge your Phase Drive and build your Flow Chain. Find Phase Cells, Shard Magnets, and Overclock boosts to extend your run.
 
 <!-- omgithub:readme:start -->
 ## 🚀 Build, play, and remix with OMGithub
